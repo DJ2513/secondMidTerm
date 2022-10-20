@@ -1,0 +1,16 @@
+/* Estilos GLobales */
+
+/* Esto hace que 1 rem = 10 pixeles */
+html{
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+*, *:before,*:after{
+    box-sizing: inherit;
+} 
+h1{
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 4.5rem;
+}
