@@ -110,18 +110,7 @@ let abom = {
 
 juan = data['biography']
 app.get('/', function(req, res) {
-    for (const [key, value] of Object.entries(juan)) {
-        console.log(key);
-        if (typeof(value) == 'string') {
-            console.log(value)
-        }
-        else{
-            value.forEach(element => {
-                console.log(element)
-            });
-        }
-    }
-    res.render(__dirname + "/pruab.html", {name:abom["biography"], image:abom["image"]});
+    res.render(__dirname + "/prueba.html", {name:abom["biography"], image:data["image"]});
 });
 
 app.listen(port, () => {
