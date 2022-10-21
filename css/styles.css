@@ -1,16 +1,116 @@
 /* Estilos GLobales */
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+:root{
+    --bg-color: #e6e6e6;
+    --primary: hwb(0 100% 0%);
+    --secondary: #3282B8;
+    --tertiar: #020202;
+}
 /* Esto hace que 1 rem = 10 pixeles */
 html{
     box-sizing: border-box;
     font-size: 62.5%;
+    height: 100%;
+    background-color: var(--bg-color)
 }
 *, *:before,*:after{
     box-sizing: inherit;
 } 
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
 h1{
     display: flex;
     justify-content: center;
     font-weight: bold;
     font-size: 4.5rem;
+    color: var(--tertiar);
+}
+
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#card {
+    background-color: var(--primary);
+    height: 600px;
+    width: 450px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    overflow-y: hidden;
+    margin-bottom: 50px;
+    padding: 20px;
+}
+
+.img{
+    width: 250px;
+    height: 250px;
+    margin-top: 15px;
+    border-radius: 7px;
+}
+
+#card__title {
+    text-align: center;
+    font-size: xx-large;
+}
+
+table {
+    width: 100%;
+}
+
+tr {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 5px 0px;
+}
+table{
+    margin: 5px;
+}
+
+h4 {
+    text-align: center;
+}
+
+td {
+    display: flex;
+    align-items: center;
+}
+
+form {
+    background-color: white;
+    width: 150px;
+    /* max-height: 25px; */
+    margin-bottom: 25px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+#aditional {
+    display: none;
+}
+
+form input {
+    border: none;
+    width: 150px;
 }
