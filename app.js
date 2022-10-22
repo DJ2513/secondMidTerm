@@ -127,7 +127,7 @@ cargarSuperheroes();
 
 juan = data['biography']
 app.get('/', function(req, res) {
-    res.render(__dirname + "/prueba.html", {data:data});
+    res.render(__dirname + "/index.html", {data:data});
 });
 
 app.post('/', function(req, res) {
