@@ -1,16 +1,15 @@
 /* Estilos GLobales */
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 :root{
-    --bg-color: #455A64;
-    --primary: hwb(0 100% 0%);
+    --bg-color: #3282B8;
+    --primary: hwb(231 13% 53%);
     --secondary: #3282B8;
     --tertiar: #020202;
 }
-/* Esto hace que 1 rem = 10 pixeles */
 html{
     box-sizing: border-box;
     height: 100%;
-    background-color: var(--bg-color)
+    background-color: #DFE6E9
 }
 *, *:before,*:after{
     box-sizing: inherit;
@@ -33,7 +32,7 @@ h1{
     display: flex;
     justify-content: center;
     font-size: 50px;
-    color: var(--tertiar);
+    color: white;
 }
 
 main {
@@ -45,7 +44,7 @@ main {
 }
 
 #card {
-    background-color: #CFD8DC;
+    background-color: #003566;
     height: 750px;
     position: relative;
     max-width: 750px;
@@ -65,21 +64,21 @@ main {
 }
 
 .img{
-    /* width: 250px; */
     height: 350px;
     width: 100%;
     margin-top: 15px;
-    /* margin-bottom: 15px; */
     border-radius: 7px;
 }
 
 #card__title {
+    color: #FFD60A;
     text-align: center;
     font-size: xx-large;
 }
 
 table {
     width: 100%;
+    color: white;
 }
 
 tr {
@@ -125,7 +124,7 @@ form {
     width: 50px;
     border: none;
     border-radius: 100%;
-    background-color: #212121;
+    background-color: #000814;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -137,7 +136,7 @@ form {
     width: 50px;
     border: none;
     border-radius: 100%;
-    background-color: #212121;
+    background-color: #000814;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -150,32 +149,20 @@ form {
     right: 0;
     bottom: 0;
     top: 0;
-    /* position: relative; */
-    /* height: 750px;
-    width: 500px; */
     z-index: 50;
-    /* background-color: rebeccapurple; */
-    /* width: 50000px;
-    height: 500000px; */
-    /* background-color: #3282B8; */
 }
 
 
 #card:hover {
     transform: scale(103%);
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
-/* #element::-webkit-scrollbar {
-    display: none;
-} */
 
 ::-webkit-scrollbar {
     display: none;
 }
 
 ul {
-    /* background-color: rebeccapurple; */
     text-align: right;
 }
 
@@ -187,7 +174,6 @@ td {
     text-align: justify;
     text-justify: inter-word;
     line-height: 1.5;
-    /* margin-right: 30px; */
 }
 
 .key {
@@ -195,6 +181,7 @@ td {
     margin-right: 15px;
     font-size: 20px;
     text-transform: capitalize;
+    color: #FFC300;
 }
 
 .title {
@@ -211,7 +198,7 @@ td {
 .bar {
     width: 100%;
     height: 5px;
-    background-color: rebeccapurple;
+    background-color: #FFD60A;
     margin: 0px 50px;
 }
 
@@ -224,7 +211,6 @@ td {
 .button:hover {
     transform: scale(130%);
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 
 input {
@@ -237,5 +223,8 @@ input {
     border: none;
     border-radius: 10px;
     padding: 5px;
-    /* margin-bottom: 50px; */
+}
+
+h5 {
+    color: white;
 }

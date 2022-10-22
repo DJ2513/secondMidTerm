@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>SecondMidterm</title>
+</head>
+<body>
+    <main>
+        <button id="left" onclick="regresar()" class="button"></button>
+        <div id="card" style="display: flex; justify-content: center; height: 200px; width: 500px;">
+            <h1>Error</h1>
+            <h3 style="color: white;">Hero not found</h3>
+        <div id="card__overlay"></div>
+        </div>
+        <button id="right" class="button"></button>
+    </main>
+    <form action="/" id="search" method="post">
+        <svg xmlns="http://www.w3.org/2000/svg" id="lupa" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <circle cx="10" cy="10" r="7" />
+            <line x1="21" y1="21" x2="15" y2="15" />
+        </svg>
+        <input type="text" placeholder="Ingresa superheroe" id="searchinput" name="nombre">
+    </form>
+    <script src="app.js"></script>
+    <script src="error.js"></script>
+</body>
+</html>

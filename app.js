@@ -3,10 +3,9 @@ const app = express()
 const path = require('path')
 const request = require('request')
 let current_id = 1
-const url = `https://www.superheroapi.com/api.php/5590503564398104/${current_id}`;
-const https = require('https')
-const port = 8000
+const url = `https://www.superheroapi.com/api.php/5590503564398104/`;
 const bodyParser = require("body-parser");
+const port = 8000;
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 app.set('views', __dirname);
@@ -14,182 +13,51 @@ app.use(express.static(path.join(__dirname, 'css')));
 app.use(bodyParser.urlencoded())
 
 app.get("/",(req,res)=>{
-    console.log('omar')
-    request(url , (err, response, body)=>{
-        if (!err){
+    console.log(`${url}${current_id}`)
+    request(`${url}${current_id}` , (err, response, body)=>{
+    if (!err){
         const users = JSON.parse(body);
-        counter = 0;
         res.render(__dirname + "/index.html", {data:users});
     }
-    });
-    });
-
+  });
+});
     
-
-    // let data = {
-    //     "response": "success",
-    //     "id": "70",
-    //     "name": "Batman",
-    //     "powerstats": {
-    //         "intelligence": "100",
-    //         "strength": "26",
-    //         "speed": "27",
-    //         "durability": "50",
-    //         "power": "47",
-    //         "combat": "100"
-    //     },
-    //     "biography": {
-    //         "full-name": "Bruce Wayne",
-    //         "alter-egos": "No alter egos found.",
-    //         "aliases": [
-    //             "Insider",
-    //             "Matches Malone"
-    //         ],
-    //         "place-of-birth": "Crest Hill, Bristol Township; Gotham County",
-    //         "first-appearance": "Detective Comics #27",
-    //         "publisher": "DC Comics",
-    //         "alignment": "good"
-    //     },
-    //     "appearance": {
-    //         "gender": "Male",
-    //         "race": "Human",
-    //         "height": [
-    //             "6'2",
-    //             "188 cm"
-    //         ],
-    //         "weight": [
-    //             "210 lb",
-    //             "95 kg"
-    //         ],
-    //         "eye-color": "blue",
-    //         "hair-color": "black"
-    //     },
-    //     "work": {
-    //         "occupation": "Businessman",
-    //         "base": "Batcave, Stately Wayne Manor, Gotham City; Hall of Justice, Justice League Watchtower"
-    //     },
-    //     "connections": {
-    //         "group-affiliation": "Batman Family, Batman Incorporated, Justice League, Outsiders, Wayne Enterprises, Club of Heroes, formerly White Lantern Corps, Sinestro Corps",
-    //         "relatives": "Damian Wayne (son), Dick Grayson (adopted son), Tim Drake (adopted son), Jason Todd (adopted son), Cassandra Cain (adopted ward)\nMartha Wayne (mother, deceased), Thomas Wayne (father, deceased), Alfred Pennyworth (former guardian), Roderick Kane (grandfather, deceased), Elizabeth Kane (grandmother, deceased), Nathan Kane (uncle, deceased), Simon Hurt (ancestor), Wayne Family"
-    //     },
-    //     "image": {
-    //         "url": "https://www.superherodb.com/pictures2/portraits/10/100/639.jpg"
-    //     }
-    // }
-
-    // let abom = {
-    //     "response": "success",
-    //     "id": "1",
-    //     "name": "A-Bomb",
-    //     "powerstats": {
-    //         "intelligence": "38",
-    //         "strength": "100",
-    //         "speed": "17",
-    //         "durability": "80",
-    //         "power": "24",
-    //         "combat": "64"
-    //     },
-    //     "biography": {
-    //         "full-name": "Richard Milhouse Jones",
-    //         "alter-egos": "No alter egos found.",
-    //         "aliases": [
-    //             "Rick Jones"
-    //         ],
-    //         "place-of-birth": "Scarsdale, Arizona",
-    //         "first-appearance": "Hulk Vol 2 #2 (April, 2008) (as A-Bomb)",
-    //         "publisher": "Marvel Comics",
-    //         "alignment": "good"
-    //     },
-    //     "appearance": {
-    //         "gender": "Male",
-    //         "race": "Human",
-    //         "height": [
-    //             "6'8",
-    //             "203 cm"
-    //         ],
-    //         "weight": [
-    //             "980 lb",
-    //             "441 kg"
-    //         ],
-    //         "eye-color": "Yellow",
-    //         "hair-color": "No Hair"
-    //     },
-    //     "work": {
-    //         "occupation": "Musician, adventurer, author; formerly talk show host",
-    //         "base": "-"
-    //     },
-    //     "connections": {
-    //         "group-affiliation": "Hulk Family; Excelsior (sponsor), Avengers (honorary member); formerly partner of the Hulk, Captain America and Captain Marvel; Teen Brigade; ally of Rom",
-    //         "relatives": "Marlo Chandler-Jones (wife); Polly (aunt); Mrs. Chandler (mother-in-law); Keith Chandler, Ray Chandler, three unidentified others (brothers-in-law); unidentified father (deceased); Jackie Shorr (alleged mother; unconfirmed)"
-    //     },
-    //     "image": {
-    //         "url": "https://www.superherodb.com/pictures2/portraits/10/100/10060.jpg"
-    //     }
-    // }
-
-// juan = data['biography']
 app.get('/next', function(req, res) {
-    if (current_id > 732){
+    if (current_id == 732){
         current_id = 1;
-        app.get("/",(req,res)=>{
-            request(url , (err, response, body)=>{
-                if (!err){
-                    const users = JSON.parse(body);
-                    counter = 0;
-                    res.render(__dirname + "/index.html", {data:users});
-                }
-            });
-        });
     }
     else{
         current_id += 1
-        //mandar a req de /
-        app.get("/",(req,res)=>{
-                request(url , (err, response, body)=>{
-                    if (!err){
-                        const users = JSON.parse(body);
-                        counter = 0;
-                        res.render(__dirname + "/index.html", {data:users});
-                    }
-                });
-            });
-        res.send('/next');
     }
+    res.redirect('/')
 });
 
 
 app.get('/previous', function(req, res) {
-  if (current_id < 1 ){
+  if (current_id == 1 ){
     current_id = 732;
-    app.get("/",(req,res)=>{
-        request(url , (err, response, body)=>{
-                if (!err){
-                    const users = JSON.parse(body);
-                    counter = 0;
-                    res.render(__dirname + "/index.html", {data:users});
-                }
-            });
-    });
-    
   }else{
     current_id-= 1
-    //mandar a req de /
-    app.get("/",(req,res)=>{
-        request(url , (err, response, body)=>{
-            if (!err){
-                const users = JSON.parse(body);
-                counter = 0;
-                res.render(__dirname + "/index.html", {data:users});
-            }
-        });
-    });
-    res.send()
   }
+  res.redirect('/')
 });
-// app.post('/', function(req, res) {
-//     console.log(req.body)
-//     res.send("Un post salvaje")
-// });
+
+app.post("/",(req,res)=>{
+  let nameurl = `https://www.superheroapi.com/api.php/5590503564398104/search/${req.body.nombre}`
+  request(nameurl , (err, response, body)=>{
+    if (!err){
+      const users = JSON.parse(body);
+      if (users['response'] === 'success') {
+        current_id = parseInt(users['results'][0]['id'])
+        console.log(current_id)
+        res.render(__dirname + "/index.html", {data:users['results'][0]});
+      }
+      else {
+        res.render(__dirname + "/error.html");
+      }
+    }
+  });
+});
 
 app.listen(port, () => {
   console.log(`Example app listening on port 8000`)
