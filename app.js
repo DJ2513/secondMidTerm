@@ -2,10 +2,12 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const port = 3000
+const bodyParser = require("body-parser");
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 app.set('views', __dirname);
 app.use(express.static(path.join(__dirname, 'css')));
+app.use(bodyParser.urlencoded())
 
 let current_id = 0
 
@@ -117,7 +119,7 @@ app.get('/', function(req, res) {
 });
 
 app.post('/', function(req, res) {
-    // res.render(__dirname + "/prueba.html", {data:data});
+    console.log(req.body)
     res.send("Un post salddvaje")
 });
 
