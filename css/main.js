@@ -41,6 +41,9 @@ btnSiguiente.addEventListener('click', ()=>{
     window.location.assign('http://localhost:8000/next');
 })
 
+btnAnterior.addEventListener('click', ()=>{
+    window.location.assign('http://localhost:8000/previous');
+})
 // function regresar() {
 //     window.alert("atras")
 // }

@@ -127,9 +127,21 @@ app.get("/",(req,res)=>{
 
 // juan = data['biography']
 app.get('/next', function(req, res) {
+    current_id += 1
+    //mandar a req de /
+    // no pasar de 732, si si mandar a 1
     res.send('prueba');
+
 });
 
+
+app.get('/previous', function(req, res) {
+  current_id -= 1
+  //mandar a req de /
+  // no pasar a 0, si si mandar a 732
+  res.send('prueba');
+
+});
 // app.post('/', function(req, res) {
 //     console.log(req.body)
 //     res.send("Un post salvaje")
