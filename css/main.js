@@ -5,8 +5,8 @@ let card = document.getElementById('card')
 let srbar = document.getElementById('search')
 let lupa = document.getElementById('lupa')
 let srinput = document.getElementById('searchinput')
-const btnSiguiente = document.querySelector('#right')
-const btnAnterior = document.querySelector('#left')
+const btnSiguiente = document.getElementById('right')
+const btnAnterior = document.getElementById('left')
 // let sroverlay = document.getElementById('src__overlay')
 const auto = function(){
     card.style.overflowY = "Auto";
@@ -38,7 +38,7 @@ srbar.addEventListener("mouseleave", function() {
 });
   // TO-DO Diegordito
 btnSiguiente.addEventListener('click', ()=>{
-    
+    window.location.reload();
 })
 
 // function regresar() {
@@ -46,5 +46,5 @@ btnSiguiente.addEventListener('click', ()=>{
 // }
 
 function siguiente(e) {
-    window.alert("siguiente")
+    
 }

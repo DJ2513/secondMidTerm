@@ -5,14 +5,13 @@ const request = require('request')
 let current_id = 1
 const url = `https://www.superheroapi.com/api.php/5590503564398104/${current_id}`;
 const https = require('https')
-const port = 3000
+const port = 8000
 const bodyParser = require("body-parser");
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 app.set('views', __dirname);
 app.use(express.static(path.join(__dirname, 'css')));
 app.use(bodyParser.urlencoded())
-
 
 app.get("/",(req,res)=>{
     console.log('omar')
@@ -127,15 +126,15 @@ app.get("/",(req,res)=>{
     // }
 
 // juan = data['biography']
-// app.get('/', function(req, res) {
-//     res.render(__dirname + "/index.html", {data:data});
-// });
+app.get('/next', function(req, res) {
+    res.send('prueba');
+});
 
 // app.post('/', function(req, res) {
 //     console.log(req.body)
 //     res.send("Un post salvaje")
 // });
 
-app.listen(8000, () => {
+app.listen(port, () => {
   console.log(`Example app listening on port 8000`)
 })
