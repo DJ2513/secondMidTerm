@@ -8,33 +8,43 @@
     <title>SecondMidterm</title>
 </head>
 <body>
-    <h1 class="Title">SuperHeroPedia!</h1>
     <main>
-        <button id="right">
-        </button>
+        <button id="left" onclick="regresar()" class="button"></button>
         <div id="card">
-                <h3 id="card__title">Batman</h3>
-                <img class="img" src="https://www.superherodb.com/pictures2/portraits/10/100/1496.jpg" alt="">
-                <h4>Information</h4>
-                <table>
-                    <table>
-                        <% for (const [key, value] of Object.entries(name)) { %>
+            <h3 id="card__title"><%= data["name"] %></h3>
+            <h5><%= data["id"] %></h5>
+            <img class="img" src="<%= data["image"]['url'] %>" alt="">
+            <table id="table">
+                <%   for (const [title, tval] of Object.entries(data)) { %>
+                    <% if (!["response", 'image', 'name', 'id'].includes(title)) { %>
+                        <tr class="title">
+                            <td>
+                                <h4><%= title %></h4>
+                                <div class="bar"></div>
+                            </td>
+                        </tr>
+                        <% for (const [key, value] of Object.entries((tval))) { %>
                             <tr>
-                                <td><%= key %></td>
+                                <td class="key"><%= key %></td>
                                 <% if(typeof(value) == 'string'){ %>
                                     <td><%= value %></td>
-                                  <% } else{ %>  
-                                    <% value.forEach(element => { %>
-                                        <td><%= element %></td>
-                                    <%  }) %>
+                                    <% } else{ %>  
+                                    <td>
+                                        <div class="listcont">
+                                            <% value.forEach(element => { %>
+                                                <ul><%= element %></ul>
+                                            <%  }) %>
+                                        </div>
+                                    </td>
                                 <% } %>
                             </tr>
-                         <% } %>
-                    </table>
-                </table>
+                        <% } %>
+                    <% } %>
+                <% } %>
+            </table>
+            <div id="card__overlay"></div>
         </div>
-        <button id="left">
-        </button>
+        <button id="right" onclick="siguiente()" class="button"></button>
     </main>
     <form action="">
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -44,5 +54,6 @@
         </svg>
     </form>
     <script src="app.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>

@@ -6,6 +6,7 @@ app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 app.set('views', __dirname);
 app.use(express.static(path.join(__dirname, 'css')));
+// app.use(express.static(path.join(__dirname, "js")));
 
 let data = {
     "response": "success",
@@ -110,7 +111,10 @@ let abom = {
 
 juan = data['biography']
 app.get('/', function(req, res) {
-    res.render(__dirname + "/prueba.html", {name:abom["biography"], image:data["image"]});
+    console.log(data["image"]['url'])
+    console.log(data["id"])
+      
+    res.render(__dirname + "/prueba.html", {data:data});
 });
 
 app.listen(port, () => {
