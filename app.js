@@ -116,6 +116,11 @@ app.get('/', function(req, res) {
     res.render(__dirname + "/prueba.html", {data:data});
 });
 
+app.post('/', function(req, res) {
+    // res.render(__dirname + "/prueba.html", {data:data});
+    res.send("Un post salddvaje")
+});
+
 app.listen(port, () => {
   console.log(`Example app listening on posrt ${port}`)
 })
