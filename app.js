@@ -2,7 +2,8 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const request = require('request')
-const url = 'https://superheroapi.com/api.php/5590503564398104/1';
+let current_id = 1
+const url = `https://www.superheroapi.com/api.php/5590503564398104/${current_id}`;
 const https = require('https')
 const port = 3000
 const bodyParser = require("body-parser");
@@ -12,43 +13,14 @@ app.set('views', __dirname);
 app.use(express.static(path.join(__dirname, 'css')));
 app.use(bodyParser.urlencoded())
 
-let current_id = 0
-// const cargarSuperheroes = async()=>{
-//     try {
-//         const respuesta = await fetch('https://www.superheroapi.com/api.php/5590503564398104')
-//             console.log(respuesta);
-//         if(respuesta.status===200){
-//             const datos = await respuesta.json();
-
-//             console.log(datos);
-//             datos.resultados.array.forEach(superheroe => {
-                       
-//             });
-//         }
-//         else if(respuesta.status===401){
-//             console.log('La llave esta mal');
-//         }
-//         else if(respuesta.status===404){
-//             console.log('Superpolla no existe.');
-//         }
-//         else{
-//             console.log('Hubo un error, mamaste hijo');
-//         };
-//     }
-//     catch (error) {
-//         console.log(error)
-//     };
-// };
-// cargarSuperheroes();
 
 app.get("/",(req,res)=>{
-    request(url, (err, response, body)=>{
+    console.log('omar')
+    request(url , (err, response, body)=>{
       if (!err){
         const users = JSON.parse(body);
-        console.log(users);
         counter = 0;
-        // res.render(__dirname + "/index.html", {data:users});
-        res.send('Prueba');
+        res.render(__dirname + "/index.html", {data:users});
     }
     });
   });
@@ -164,6 +136,6 @@ app.get("/",(req,res)=>{
 //     res.send("Un post salvaje")
 // });
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+app.listen(8000, () => {
+  console.log(`Example app listening on port 8000`)
 })
