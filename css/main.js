@@ -38,7 +38,7 @@ srbar.addEventListener("mouseleave", function() {
 });
   // TO-DO Diegordito
 btnSiguiente.addEventListener('click', ()=>{
-    window.location.reload();
+    window.location.assign('http://localhost:8000/next');
 })
 
 // function regresar() {
