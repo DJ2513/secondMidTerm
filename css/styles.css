@@ -107,21 +107,18 @@ td {
 
 form {
     background-color: white;
-    width: 150px;
     margin-bottom: 25px;
-    border-radius: 10px;
+    border-radius: 100%;
     display: flex;
     justify-content: space-around;
+    position: relative;
+
 }
 
 #aditional {
     display: none;
 }
 
-form input {
-    border: none; 
-    width: 150px;
-}
 
 #left {
     height: 50px;
@@ -228,4 +225,17 @@ td {
     transform: scale(130%);
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+input {
+    position: relative;
+    background-color: white;
+    color: black;
+    display: none;
+    height: 50px;
+    width: 500px;
+    border: none;
+    border-radius: 10px;
+    padding: 5px;
+    /* margin-bottom: 50px; */
 }
