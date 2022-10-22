@@ -16,13 +16,15 @@ app.use(bodyParser.urlencoded())
 app.get("/",(req,res)=>{
     console.log('omar')
     request(url , (err, response, body)=>{
-      if (!err){
+        if (!err){
         const users = JSON.parse(body);
         counter = 0;
         res.render(__dirname + "/index.html", {data:users});
     }
     });
-  });
+    });
+
+    
 
     // let data = {
     //     "response": "success",
@@ -127,20 +129,62 @@ app.get("/",(req,res)=>{
 
 // juan = data['biography']
 app.get('/next', function(req, res) {
-    current_id += 1
-    //mandar a req de /
-    // no pasar de 732, si si mandar a 1
-    res.send('prueba');
-
+    if (current_id > 732){
+        current_id = 1;
+        app.get("/",(req,res)=>{
+            request(url , (err, response, body)=>{
+                if (!err){
+                    const users = JSON.parse(body);
+                    counter = 0;
+                    res.render(__dirname + "/index.html", {data:users});
+                }
+            });
+        });
+    }
+    else{
+        current_id += 1
+        //mandar a req de /
+        app.get("/",(req,res)=>{
+                request(url , (err, response, body)=>{
+                    if (!err){
+                        const users = JSON.parse(body);
+                        counter = 0;
+                        res.render(__dirname + "/index.html", {data:users});
+                    }
+                });
+            });
+        res.send('/next');
+    }
 });
 
 
 app.get('/previous', function(req, res) {
-  current_id -= 1
-  //mandar a req de /
-  // no pasar a 0, si si mandar a 732
-  res.send('prueba');
-
+  if (current_id < 1 ){
+    current_id = 732;
+    app.get("/",(req,res)=>{
+        request(url , (err, response, body)=>{
+                if (!err){
+                    const users = JSON.parse(body);
+                    counter = 0;
+                    res.render(__dirname + "/index.html", {data:users});
+                }
+            });
+    });
+    
+  }else{
+    current_id-= 1
+    //mandar a req de /
+    app.get("/",(req,res)=>{
+        request(url , (err, response, body)=>{
+            if (!err){
+                const users = JSON.parse(body);
+                counter = 0;
+                res.render(__dirname + "/index.html", {data:users});
+            }
+        });
+    });
+    res.send()
+  }
 });
 // app.post('/', function(req, res) {
 //     console.log(req.body)
